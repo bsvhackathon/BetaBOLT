@@ -132,7 +132,7 @@ export class BoltNonFungibleToken extends BoltToken {
     // Validate tx before continuing
     let { valid } = verifyTx(commitTx);
     if (!valid) throw new Error("Commit tx not valid");
-    // console.log({ commitTx: commitTx.id('hex'), valid });
+    console.log({ commitTx: valid });
     this.prevTxs?.push(this.tx);
 
     // Now we make the settle tx

@@ -26,8 +26,9 @@ import { BoltNonFungibleToken } from "lib/bolt/boltLib.ts";
 import { WocClient } from "lib/wocClient.js";
 const privKey = PrivateKey.fromWif('L2znqSqyqBzwvM9dcKAEa5QQcg9HsgZPdYa7JonDNf41zoKgGGcN');//L5EY1SbTvvPNSdCYQe1EJHfXCBBT4PmnF6CDbzCm9iifZptUvDGB');
 const publicKey = privKey.toPublicKey().encode(true, 'hex')
-const pubKeyHash = Hash.ripemd160(publicKey)//Hash.hash160(privKey.topublicKey)
-console.log({publicKey, pubKeyHash  })
+const pubKeyHash = Hash.ripemd160(privKey.toPublicKey().encode(true))//Hash.hash160(privKey.topublicKey)
+
+console.log({publicKey, pubKeyHash: Utils.toHex(pubKeyHash)})
 // Custom styled components
 const ConnectSwitch = styled(Switch)(({ theme }) => ({
   '& .MuiSwitch-switchBase.Mui-checked': {
@@ -175,7 +176,9 @@ export default function Home() {
     let boltToken = new BoltNonFungibleToken()
     boltToken.pubKeyHash = pubKeyHash
     boltToken.tx = Transaction.fromHex(rawTokenTx.rawTx)
+    boltToken.prevTxs.push(boltToken.tx)
     boltToken.voutIdx = Number.parseInt(outputIdx)
+    boltToken.pubKey = privKey.toPublicKey().encode(true) as number []
     boltToken.privKey = privKey
     console.log({boltToken})
     const updatedToken = await boltToken.transfer(privKey, 'commitTx', 'settleTx')
