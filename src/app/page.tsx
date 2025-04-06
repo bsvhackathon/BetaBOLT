@@ -25,8 +25,8 @@ import { green, red } from "@mui/material/colors";
 import { BoltNonFungibleToken } from "lib/bolt/boltLib.ts";
 import { WocClient } from "lib/wocClient.js";
 const privKey = PrivateKey.fromWif('L2znqSqyqBzwvM9dcKAEa5QQcg9HsgZPdYa7JonDNf41zoKgGGcN');//L5EY1SbTvvPNSdCYQe1EJHfXCBBT4PmnF6CDbzCm9iifZptUvDGB');
+const pubKeyHash = Hash.hash160(privKey.toPublicKey().encode(true))
 const publicKey = privKey.toPublicKey().encode(true, 'hex')
-const pubKeyHash = Hash.ripemd160(privKey.toPublicKey().encode(true))//Hash.hash160(privKey.topublicKey)
 
 console.log({publicKey, pubKeyHash: Utils.toHex(pubKeyHash)})
 // Custom styled components
