@@ -183,6 +183,7 @@ export default function Home() {
     console.log({boltToken})
     const updatedToken = await boltToken.transfer(privKey, 'commitTx', 'settleTx')
     console.log({ updatedToken })
+    updatedToken.prevTxs.map(tx => console.log(tx.toHex()))
     return updatedToken || 'Error: Token transfer failed'
   }
 
