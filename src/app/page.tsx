@@ -177,6 +177,7 @@ export default function Home() {
     boltToken.tx = Transaction.fromHex(rawTokenTx.rawTx)
     boltToken.voutIdx = Number.parseInt(outputIdx)
     boltToken.privKey = privKey
+    console.log({boltToken})
     const updatedToken = await boltToken.transfer(privKey, 'commitTx', 'settleTx')
     console.log({ updatedToken })
     return updatedToken || 'Error: Token transfer failed'
