@@ -1,7 +1,7 @@
 ## Babbage BSV Hackathon 2025 entry
-<img src="./img/logo.png" alt="Bolt" width="320" />
+<img src="./img/logo2.png" alt="Bolt" width="320" />
 
-# Bitcoin Original Layer-1 Token Protocol
+# Bitcoin Original Layer-1 Token Protocol Demo
 The BOLT protocol is the World's first Bitcoin token protocol which does not rely on a secondary database to authenticate token validity and identity unlike OMNI, Ordinals, and similar solutions. This innovation allows external system integration at the base blockchain layer as systems and tokens can now automatically rely upon the embedded token identities and interoperate.
 The BOLT protocol uses a proof by mathematical induction to solve the back to genesis problem surrounding where a token was initially minted, the genesis transaction, and which issuing public key identifier authorised its creation.
 Utilising multiple transaction inputs & outputs, specifically a new UTXO primitive nicknamed a 'Bolt', the protocol rules direct a chain of transactions from the genesis transaction onwards in such a way that a token cannot be counterfeited.
